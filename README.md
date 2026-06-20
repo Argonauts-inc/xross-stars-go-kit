@@ -2,11 +2,10 @@
 
 Go Utilities Kit for Xross Stars.
 
-This repository provides reusable Go helpers for Xross Stars services. It is
-intended to be safe to operate as OSS: only public, generic implementation
-patterns belong here. Service-specific configuration, secrets, internal URLs,
-AWS account details, production payloads, logs, traces, and customer data must
-stay in the consuming repositories or runtime configuration.
+This module provides small, focused Go packages for request correlation,
+structured logging, OpenTelemetry setup, AWS SQS trace propagation, and pgx
+observability. Each package is designed to be imported independently and
+configured by the consuming application.
 
 ## Packages
 
@@ -38,13 +37,12 @@ import (
 
 ## Compatibility
 
-The module currently targets Go `1.24.1` so it can be consumed by existing
-Xross Stars Lambda functions that still build with Go 1.24.x.
+The module currently targets Go `1.24.1` for compatibility with Go 1.24+
+projects.
 
 OpenTelemetry dependencies are pinned to the 1.37.x generation in this kit. Go's
 minimal version selection means services that already require newer compatible
-OpenTelemetry modules, such as Xross Stars API services using 1.44.x, will keep
-using the newer version.
+OpenTelemetry modules will keep using the newer version.
 
 ## Development
 
@@ -62,7 +60,7 @@ configuration validation on pull requests and pushes to `main`.
 
 ## Release
 
-This is a Go library module. Tags are the module versions consumed by downstream
+This is a Go library module. Tags are the module versions consumed by Go
 projects.
 
 To release a new version:
