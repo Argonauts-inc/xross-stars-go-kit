@@ -1,0 +1,25 @@
+version: 2
+
+project_name: xross-stars-go-kit
+
+before:
+  hooks:
+    - go mod tidy
+    - go test ./...
+
+builds:
+  - id: library
+    skip: true
+
+release:
+  github:
+    owner: Argonauts-inc
+    name: xross-stars-go-kit
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+

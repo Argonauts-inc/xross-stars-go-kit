@@ -19,6 +19,7 @@ go test ./...
 go vet ./...
 gofmt -w .
 go mod tidy
+goreleaser check
 ```
 
 ## Package Layout
@@ -65,3 +66,6 @@ import "github.com/Argonauts-inc/xross-stars-go-kit/otel"
 ```
 
 Tag releases when downstream Xross Stars repositories need stable versions.
+Pushing a `v*` tag runs the GitHub Actions release workflow and GoReleaser
+creates the GitHub Release and changelog. This repository is a library, so
+GoReleaser is configured to skip binary builds.
